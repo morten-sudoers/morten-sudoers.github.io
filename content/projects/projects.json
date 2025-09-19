@@ -1,0 +1,12 @@
+[
+  {
+    "slug": "proyecto-demo",
+    "title": "Proyecto Demo",
+    "excerpt": "Un proyecto de muestra.",
+    "file": "demo.md",
+    "tags": [
+      "demo"
+    ],
+    "date": "2025-09-18"
+  }
+]

@@ -1,0 +1,13 @@
+[
+  {
+    "slug": "primer-post",
+    "title": "Primer Post",
+    "excerpt": "Un post de ejemplo.",
+    "file": "primer-post.md",
+    "tags": [
+      "blog"
+    ],
+    "date": "2025-09-18",
+    "reading": "2 min"
+  }
+]

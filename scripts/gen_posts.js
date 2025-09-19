@@ -1,0 +1,1 @@
+console.log('gen posts placeholder: ya hay posts.json de ejemplo');

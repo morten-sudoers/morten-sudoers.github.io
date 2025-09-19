@@ -1,0 +1,1 @@
+console.log('gen projects placeholder: ya hay projects.json de ejemplo');

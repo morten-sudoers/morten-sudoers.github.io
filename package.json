@@ -1,0 +1,19 @@
+{
+  "name": "blog-history-music",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "postinstall": "node scripts/copy_vendor.js",
+    "build": "node scripts/gen_posts.js && node scripts/gen_projects.js",
+    "serve": "npx sirv-cli . --single --port 5500"
+  },
+  "dependencies": {
+    "highlight.js": "^11.9.0",
+    "lunr": "^2.3.9",
+    "marked": "^12.0.2"
+  },
+  "devDependencies": {
+    "sirv-cli": "^2.0.2"
+  }
+}
