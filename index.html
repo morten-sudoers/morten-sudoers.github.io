@@ -3,62 +3,41 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mi Blog</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="assets/avatar.png">
-  <script>
-    window.SITE_BASE = '/';
-    (function(){ var url=new URL(location.href); var p=url.searchParams.get('p'); if(p){ history.replaceState({},'', (window.SITE_BASE||'/').replace(/\/$/,'')+p ); } })();
-  </script>
-  <link rel="stylesheet" href="vendor/highlight-github.min.css">
-  <script src="vendor/marked.min.js"></script>
-  <script src="vendor/highlight.min.js"></script>
-  <script src="vendor/lunr.min.js"></script>
+  <title>Blog</title>
+  <meta name="color-scheme" content="light dark">
+  <!-- Optional override: set data-owner/repo on <body> if el repo no coincide con user.github.io -->
+  <link rel="stylesheet" href="/style.css">
 </head>
-<body class="theme-reimu">
-  <header class="topbar">
-    <button id="navToggle" class="nav-toggle" aria-controls="sidebar" aria-expanded="false">☰</button>
-    <div class="brand">Mi Blog</div>
-    <div class="topbar-actions">
-      <button id="themeToggle" class="icon-btn" aria-label="Cambiar tema">🌓</button>
-      <a href="/search" class="icon-btn" aria-label="Buscar">🔎</a>
-      <button id="musicToggle" class="icon-btn" aria-label="Música">🎵</button>
-      <input id="musicVol" type="range" min="0" max="1" step="0.01" value="0.5" class="vol">
+<body>
+  <header class="site-header">
+    <div class="brand"><h1>Blog</h1></div>
+    <div class="controls">
+      <input id="search" type="search" placeholder="Buscar..." />
+      <button id="themeToggle" aria-label="Cambiar tema">🌓</button>
     </div>
   </header>
-  <aside id="sidebar" class="sidebar">
-    <div class="profile">
-      <img class="avatar" src="assets/avatar.png" alt="Avatar" width="96" height="96">
-      <h1 class="site-title">Mi Blog Personal</h1>
-      <p class="site-desc">Notas, proyectos y tutoriales</p>
-      <div class="socials">
-        <a href="https://github.com/tu-usuario" target="_blank" aria-label="GitHub">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M9 19c-4.5 1.5-4.5-2.5-6-3m12 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 18 4.77 5.07 5.07 0 0 0 17.91 1S16.73.65 12 3.17a13.38 13.38 0 0 0-7 0C.27.65-.91 1-.91 1A5.07 5.07 0 0 0 0 4.77a5.44 5.44 0 0 0-1.5 3.76c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 4 21.13V25" />
-          </svg>
-          <span>GitHub</span>
-        </a>
-        <a href="https://www.linkedin.com/in/tu_usuario" target="_blank" aria-label="LinkedIn">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/>
-            <rect x="2" y="9" width="4" height="12"/>
-            <circle cx="4" cy="4" r="2"/>
-          </svg>
-          <span>LinkedIn</span>
-        </a>
+  <nav class="site-nav">
+    <a href="/">Inicio</a>
+  </nav>
+  <main class="container">
+    <section class="player">
+      <h2>Reproductor</h2>
+      <audio id="audioPlayer" controls src="/assets/music.wav"></audio>
+    </section>
+    <section id="postList" class="cards"></section>
+    <article id="postView" class="post hidden">
+      <div class="post-meta">
+        <a href="/" class="back">← Volver</a>
+        <h2 id="postTitle"></h2>
+        <p id="postDate"></p>
       </div>
-    </div>
-    <nav id="mainNav">
-      <a href="/home">Inicio</a>
-      <a href="/posts">Posts</a>
-      <a href="/projects">Proyectos</a>
-      <a href="/about">Acerca de Mi</a>
-    </nav>
-    <footer class="sidebar-footer"><small>© <span id="year"></span> Tu Nombre</small></footer>
-  </aside>
-  <main id="app"><div id="toc-root"></div><article id="content">Cargando…</article></main>
-  <div id="backdrop" class="backdrop" hidden></div>
-  <script src="app.js"></script>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+      <div id="postBody" class="markdown-body"></div>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <span>© <span id="year"></span></span>
+  </footer>
+  <script src="/js/marked.min.js"></script>
+  <script src="/script.js"></script>
 </body>
 </html>
